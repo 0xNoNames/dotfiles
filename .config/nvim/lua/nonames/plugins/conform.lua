@@ -23,11 +23,12 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { 'ruff_format', 'ruff_organize_imports', 'ruff_fix' },
+      python = { 'ruff_format', 'ruff_organize_imports' },
       css = { 'prettier' },
       html = { 'prettier' },
       json = { 'prettier' },
       javascript = { 'prettier' },
+      typerscript = { 'prettier' },
       less = { 'prettier' },
       markdown = { 'prettier' },
       yaml = { 'prettier' },

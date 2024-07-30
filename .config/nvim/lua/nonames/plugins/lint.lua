@@ -8,9 +8,21 @@ return {
         ansible = {
           'ansible-lint',
         },
+        javascript = { 'biome' },
+        typescript = { 'biome' },
         json = { 'jsonlint' },
         markdown = { 'markdownlint' },
-        python = { 'ruff', 'mypy' },
+        python = { 'mypy' },
+      }
+      lint.linters.mypy.args = {
+        '--show-column-numbers',
+        '--show-error-end',
+        '--hide-error-codes',
+        '--hide-error-context',
+        '--no-color-output',
+        '--no-error-summary',
+        '--no-pretty',
+        '--ignore-missing-imports',
       }
 
       -- Create autocommand which carries out the actual linting
