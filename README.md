@@ -11,24 +11,6 @@ sudo apt install -y fish neovim eza batcat wezterm yazi ncdu stow
 # JetBrainsMono Nerd Font
 ```
 
-## Fonts
-
-- JetBrainsMonoNerd
-- LigaSFMonoNerd
-
-## Applications
-
-- wezterm
-- fish
-- neovim
-- batcat
-- eza
-- yazi
-- ncdu
-- age
-- fzf
-- fd
-
 ## Installation
 
 > First, check out the dotfiles repo in your `$HOME` directory using git
@@ -54,3 +36,21 @@ cd dotfiles
 mv ~/.config ~/.config.bak
 stow .
 ```
+
+## Fonts
+
+- JetBrainsMonoNerd
+- LigaSFMonoNerd
+
+## Applications
+
+- wezterm
+- fish
+- neovim
+- batcat
+- eza
+- yazi
+- ncdu
+- age
+- fzf
+- fd
