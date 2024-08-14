@@ -11,13 +11,6 @@ sudo apt install -y fish neovim eza batcat wezterm yazi ncdu stow
 # JetBrainsMono Nerd Font
 ```
 
-## GNU stow
-
-```bash
-mv ~/.config ~/.config.bak
-stow .
-```
-
 ## Fonts
 
 - JetBrainsMonoNerd
@@ -58,5 +51,6 @@ cd dotfiles
 > Install requirements and then use GNU stow to create symlinks
 
 ```bash
+mv ~/.config ~/.config.bak
 stow .
 ```
