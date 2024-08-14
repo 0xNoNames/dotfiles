@@ -2,22 +2,22 @@ set -gx TERM xterm-256color
 set -gx EDITOR nvim
 set -Ux fish_prompt_pwd_dir_length 0
 set -Ux fish_greeting ''
-set -Ux  EZA_COLORS "\
-                    uu=36:\
-                    gu=37:\
-                    sn=32:\
-                    sb=32:\
-                    da=34:\
-                    ur=34:\
-                    uw=35:\
-                    ux=36:\
-                    ue=36:\
-                    gr=34:\
-                    gw=35:\
-                    gx=36:\
-                    tr=34:\
-                    tw=35:\
-                    tx=36:"
+set -Ux EZA_COLORS "\
+uu=36:\
+gu=37:\
+sn=32:\
+sb=32:\
+da=34:\
+ur=34:\
+uw=35:\
+ux=36:\
+ue=36:\
+gr=34:\
+gw=35:\
+gx=36:\
+tr=34:\
+tw=35:\
+tx=36:"
 fish_config theme choose "Dracula Official"
 fzf_configure_bindings --directory=\cf
 
