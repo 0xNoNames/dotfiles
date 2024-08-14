@@ -8,6 +8,8 @@ return {
         on_attach = function(client, _)
           client.server_capabilities.hoverProvider = false
         end,
+      },
+      pyright = {
         capabilities = {
           textDocument = {
             publishDiagnostics = {
@@ -17,8 +19,6 @@ return {
             },
           },
         },
-      },
-      pyright = {
         settings = {
           pyright = {
             disableOrganizeImports = true, -- Using Ruff

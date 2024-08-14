@@ -1,22 +1,24 @@
 set -gx TERM xterm-256color
 set -gx EDITOR nvim
-set -Ux EZA_COLORS='\
-uu=36:\
-gu=37:\
-sn=32:\
-sb=32:\
-da=34:\
-ur=34:\
-uw=35:\
-ux=36:\
-ue=36:\
-gr=34:\
-gw=35:\
-gx=36:\
-tr=34:\
-tw=35:\
-tx=36:'
 set -U fish_greetings ''
+set -Ux EXA_COLORS 'uu\x3d36\x3agu\x3d37\x3asn\x3d32\x3asb\x3d32\x3ada\x3d34\x3aur\x3d34\x3auw\x3d35\x3aux\x3d36\x3aue\x3d36\x3agr\x3d34\x3agw\x3d35\x3agx\x3d36\x3atr\x3d34\x3atw\x3d35\x3atx\x3d36\x3a'
+
+# set -Ux EZA_COLORS '\
+# uu=36:\
+# gu=37:\
+# sn=32:\
+# sb=32:\
+# da=34:\
+# ur=34:\
+# uw=35:\
+# ux=36:\
+# ue=36:\
+# gr=34:\
+# gw=35:\
+# gx=36:\
+# tr=34:\
+# tw=35:\
+# tx=36:'
 fish_config theme choose "Dracula Official"
 fzf_configure_bindings --directory=\cf
 
@@ -31,6 +33,7 @@ alias la 'll -a'
 alias lm 'la -r --sort=modified'
 alias lta 'la -TL'
 alias lx 'eza -lbhHigUmuSa@ --time-style=long-iso --color-scale --group-directories-first'
+alias python 'python3'
 
 
 # Add a new line after a command
