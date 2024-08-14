@@ -1,5 +1,0 @@
-# This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR --export EXA_COLORS:uu\x5cx3d36\x5cx3agu\x5cx3d37\x5cx3asn\x5cx3d32\x5cx3asb\x5cx3d32\x5cx3ada\x5cx3d34\x5cx3aur\x5cx3d34\x5cx3auw\x5cx3d35\x5cx3aux\x5cx3d36\x5cx3aue\x5cx3d36\x5cx3agr\x5cx3d34\x5cx3agw\x5cx3d35\x5cx3agx\x5cx3d36\x5cx3atr\x5cx3d34\x5cx3atw\x5cx3d35\x5cx3atx\x5cx3d36\x5cx3a
-SETUVAR fish_greetings:
-SETUVAR fish_key_bindings:fish_default_key_bindings
