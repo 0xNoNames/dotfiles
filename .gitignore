@@ -6,3 +6,5 @@ debug
 foo.*
 *.log
 data
+
+fish/.config/fish/fish_variables
