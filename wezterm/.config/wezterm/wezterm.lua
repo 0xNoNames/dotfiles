@@ -2,15 +2,15 @@ local wezterm = require 'wezterm'
 local mux = wezterm.mux
 return {
   color_scheme = 'Dracula (Official)',
-  colors = {
-    background = '#000000',
-  },
+  -- colors = {
+  --   background = '#000000',
+  -- },
   enable_tab_bar = false,
   font_size = 14.0,
   font = wezterm.font 'JetBrainsMono Nerd Font Mono', -- Liga SFMono Nerd Font or Iosevka Term or JetBrainsMono Nerd Font Mono
-  macos_window_background_blur = 30,
+  -- macos_window_background_blur = 30,
 
-  window_background_opacity = 0.40,
+  -- window_background_opacity = 0.40,
   window_decorations = 'RESIZE | TITLE',
   keys = {
     {
