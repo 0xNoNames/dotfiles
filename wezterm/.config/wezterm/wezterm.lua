@@ -10,6 +10,8 @@ config.font = wezterm.font 'JetBrainsMono Nerd Font Mono' -- Liga SFMono Nerd Fo
 config.window_decorations = 'RESIZE | TITLE'
 
 config.keys = {
+  { mods = 'CTRL|SHIFT', key = 'q', action = wezterm.action.CloseCurrentPane { confirm = false } },
+
   {
     mods = 'CTRL|SHIFT',
     key = 'f',
