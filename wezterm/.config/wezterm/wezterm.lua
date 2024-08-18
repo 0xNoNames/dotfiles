@@ -1,34 +1,68 @@
 local wezterm = require 'wezterm'
-local mux = wezterm.mux
-return {
-  color_scheme = 'Dracula (Official)',
-  -- colors = {
-  --   background = '#000000',
-  -- },
-  enable_tab_bar = false,
-  font_size = 14.0,
-  font = wezterm.font 'JetBrainsMono Nerd Font Mono', -- Liga SFMono Nerd Font or Iosevka Term or JetBrainsMono Nerd Font Mono
-  -- macos_window_background_blur = 30,
+local smart_splits = wezterm.plugin.require 'https://github.com/mrjones2014/smart-splits.nvim'
+local config = wezterm.config_builder()
 
-  -- window_background_opacity = 0.40,
-  window_decorations = 'RESIZE | TITLE',
-  keys = {
-    {
-      key = 'f',
-      mods = 'CMD',
-      action = wezterm.action.ToggleFullScreen,
-    },
-  },
-  mouse_bindings = {
-    {
-      event = { Up = { streak = 1, button = 'Left' } },
-      mods = 'CTRL',
-      action = wezterm.action.OpenLinkAtMouseCursor,
-    },
-  },
+config.leader = { key = 's', mods = 'CTRL', timeout_milliseconds = 1000 }
 
-  wezterm.on('gui-startup', function(cmd)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():maximize()
-  end),
+config.color_scheme = 'Dracula (Official)'
+config.enable_tab_bar = false
+config.font_size = 14.0
+config.font = wezterm.font 'JetBrainsMono Nerd Font Mono' -- Liga SFMono Nerd Font or Iosevka Term or JetBrainsMono Nerd Font Mono
+config.window_decorations = 'RESIZE | TITLE'
+
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = wezterm.action.OpenLinkAtMouseCursor,
+  },
 }
+
+config.keys = {
+  {
+    key = 'f',
+    mods = 'CMD',
+    action = wezterm.action.ToggleFullScreen,
+  },
+  {
+    mods = 'LEADER',
+    key = '-',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    mods = 'LEADER',
+    key = '=',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    mods = 'LEADER',
+    key = 'f',
+    action = wezterm.action.TogglePaneZoomState,
+  },
+  {
+    mods = 'LEADER',
+    key = 'Space',
+    action = wezterm.action.RotatePanes 'Clockwise',
+  },
+  -- show the pane selection mode, but have it swap the active and selected panes
+  {
+    mods = 'LEADER',
+    key = '0',
+    action = wezterm.action.PaneSelect {
+      mode = 'SwapWithActive',
+    },
+  },
+  {
+    key = 'Enter',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateCopyMode,
+  },
+}
+smart_splits.apply_to_config(config, {
+  direction_keys = { 'h', 'j', 'k', 'l' },
+  modifiers = {
+    move = 'CTRL',
+    resize = 'CMD',
+  },
+})
+return config
