@@ -2,82 +2,76 @@ return {
   "mrjones2014/smart-splits.nvim",
   keys = {
     {
-      "<A-h>",
+      "<C-A-h>",
       function()
         require("smart-splits").resize_left()
       end,
     },
     {
-      "<A-j>",
+      "<C-A-j>",
       function()
         require("smart-splits").resize_down()
       end,
     },
     {
-      "<A-k>",
+      "<C-A-k>",
       function()
         require("smart-splits").resize_up()
       end,
     },
     {
-      "<A-l>",
+      "<C-A-l>",
       function()
         require("smart-splits").resize_right()
       end,
     },
     {
-      "<C-h>",
+      "<C-C-S-h>",
       function()
         require("smart-splits").move_cursor_left()
       end,
     },
     {
-      "<C-j>",
+      "<C-S-j>",
       function()
         require("smart-splits").move_cursor_down()
       end,
     },
     {
-      "<C-k>",
+      "<C-S-k>",
       function()
         require("smart-splits").move_cursor_up()
       end,
     },
     {
-      "<C-l>",
+      "<C-S-l>",
       function()
         require("smart-splits").move_cursor_right()
       end,
     },
-    {
-      "<C-\\>",
-      function()
-        require("smart-splits").move_cursor_previous()
-      end,
-    },
-    {
-      "<leader><leader>h",
-      function()
-        require("smart-splits").swap_buf_left()
-      end,
-    },
-    {
-      "<leader><leader>j",
-      function()
-        require("smart-splits").swap_buf_down()
-      end,
-    },
-    {
-      "<leader><leader>k",
-      function()
-        require("smart-splits").swap_buf_up()
-      end,
-    },
-    {
-      "<leader><leader>l",
-      function()
-        require("smart-splits").swap_buf_right()
-      end,
-    },
+    -- {
+    --   "<leader><leader>h",
+    --   function()
+    --     require("smart-splits").swap_buf_left()
+    --   end,
+    -- },
+    -- {
+    --   "<leader><leader>j",
+    --   function()
+    --     require("smart-splits").swap_buf_down()
+    --   end,
+    -- },
+    -- {
+    --   "<leader><leader>k",
+    --   function()
+    --     require("smart-splits").swap_buf_up()
+    --   end,
+    -- },
+    -- {
+    --   "<leader><leader>l",
+    --   function()
+    --     require("smart-splits").swap_buf_right()
+    --   end,
+    -- },
   },
 }
