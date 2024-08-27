@@ -4,10 +4,8 @@ return {
   opts = function(_, opts)
     local ascii = require("ascii")
     local logo = ascii.get_random("text", "neovim")
-
-    new_logo = string.rep("\n", 10) .. table.concat(logo, "\n") .. string.rep("\n", 2)
-
-    opts.config.header = vim.split(new_logo, "\n")
+    logo = string.rep("\n", 10) .. table.concat(logo, "\n") .. string.rep("\n", 2)
+    opts.config.header = vim.split(logo, "\n")
     return opts
   end,
 }
