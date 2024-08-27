@@ -1,5 +1,9 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "mypy", "pyright", "ruff" } },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
