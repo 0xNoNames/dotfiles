@@ -1,10 +1,17 @@
 return {
+  -- {
+  --   "maxmx03/dracula.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  -- },
   {
-    "maxmx03/dracula.nvim",
+    "binhtran432k/dracula.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
   },
+
   {
     "LazyVim/LazyVim",
     opts = {
