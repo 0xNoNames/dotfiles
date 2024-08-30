@@ -21,8 +21,8 @@ tx=36:"
 fish_config theme choose "Dracula Official"
 fzf_configure_bindings --directory=\cf
 
-alias cat 'bat --theme=Dracula'
-alias catp 'bat -pp'
+alias cat 'batcat --theme=Dracula'
+alias catp 'cat -pp'
 alias vim 'nvim'
 alias vi 'nvim'
 alias ll 'eza -lgbF --icons --color=always --group-directories-first'
