@@ -34,7 +34,7 @@ cd dotfiles
 
 ```bash
 mv ~/.config ~/.config.bak
-stow -v -t ~/ -S aerospace bat fish nvim wezterm
+stow -v -t ~/ -S aerospace bat fish nvim wezterm wallust
 ```
 
 ## Fonts
@@ -44,6 +44,7 @@ stow -v -t ~/ -S aerospace bat fish nvim wezterm
 
 ## Applications
 
+- wallust
 - wezterm
 - fish
 - neovim
