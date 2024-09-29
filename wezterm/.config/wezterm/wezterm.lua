@@ -12,7 +12,7 @@ config.enable_tab_bar = true
 config.font_size = 14.0
 config.font = wezterm.font 'JetBrainsMono Nerd Font Mono' -- Liga SFMono Nerd Font or Iosevka Term or JetBrainsMono Nerd Font Mono
 config.window_decorations = 'NONE | RESIZE'
--- config.window_background_opacity = 0.5
+-- config.window_background_opacity = 0.75
 -- config.macos_window_background_blur = 50
 config.window_close_confirmation = 'NeverPrompt'
 
