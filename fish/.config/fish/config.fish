@@ -4,11 +4,12 @@ set -gx EDITOR nvim
 set -Ux fish_prompt_pwd_dir_length 0
 set -Ux fish_greeting ''
 
-if test -e ~/.cache/wal/colors.fish
-    source ~/.cache/wal/colors.fish
-end
+# if test -e ~/.cache/wal/colors.fish
+#     source ~/.cache/wal/colors.fish
+# end
 
 fzf_configure_bindings --directory=\cf
+alias history _fzf_search_history
 
 # -- -- -- ALIASES -- -- -- #
 alias cat 'bat --theme=Dracula'
