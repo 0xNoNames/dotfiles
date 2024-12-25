@@ -1,42 +1,67 @@
 return {
-  -- {
-  --   "williamboman/mason.nvim",
-  --   opts = { ensure_installed = { "mypy" } },
-  -- },
+
+  -- Pyright + MyPy + Ruff configuration
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        basedpyright = {
+          -- capabilities = {
+          --   textDocument = {
+          --     publishDiagnostics = {
+          --       tagSupport = {
+          --         valueSet = { 2 },
+          --       },
+          --     },
+          --   },
+          -- },
+          settings = {
+            basedpyright = {
+              disableOrganizeImports = true, -- Using Ruff
+            },
+            python = {
+              analysis = {
+                ignore = { "*" }, -- Using Ruff
+                typeCheckingMode = "off", -- Using mypy
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+
+  -- Python LSP server configuration
   -- {
   --   "neovim/nvim-lspconfig",
   --   opts = {
   --     servers = {
-  -- ruff = {
-  --   on_attach = function(client, _)
-  --     client.server_capabilities.hoverProvider = false
-  --   end,
-  -- },
-  -- pyright = {
-  --   capabilities = {
-  --     textDocument = {
-  --       publishDiagnostics = {
-  --         tagSupport = {
-  --           valueSet = { 2 },
+  --       pylsp = {
+  --         settings = {
+  --           pylsp = {
+  --             plugins = {
+  --               -- formatter options
+  --               autopep8 = { enabled = false },
+  --               yapf = { enabled = false },
+  --               -- linter options
+  --               pylint = { enabled = false },
+  --               pyflakes = { enabled = false },
+  --               mccabe = { enabled = false },
+  --               pycodestyle = { enabled = false },
+  --               rope = { enabled = false },
+  --               -- type checker
+  --               pylsp_mypy = { enabled = true, live_mode = false, dmypy = true, strict = true },
+  --               -- auto-completion options
+  --               jedi_completion = { enabled = false },
+  --             },
+  --           },
   --         },
   --       },
   --     },
   --   },
-  --   settings = {
-  --     pyright = {
-  --       disableOrganizeImports = true, -- Using Ruff
-  --     },
-  --     python = {
-  --       analysis = {
-  --         ignore = { "*" }, -- Using Ruff
-  --         typeCheckingMode = "off", -- Using mypy
-  --       },
-  --     },
-  --   },
   -- },
-  --     },
-  --   },
-  -- },
+
+  -- MyPy setup
   -- {
   --   "mfussenegger/nvim-lint",
   --   opts = {
@@ -44,12 +69,12 @@ return {
   --       python = { "mypy" },
   --     },
   --     linters = {
-  --       mypy = {},
+  --       mypy = { args = { "--strict" } },
   --     },
   --   },
   -- },
-  --
-  -- Automatic format imports
+
+  -- Automatic format file and imports
   {
     "stevearc/conform.nvim",
     opts = {
