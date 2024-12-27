@@ -8,9 +8,6 @@ local config = wezterm.config_builder()
 -- config.color_scheme_dirs = { home .. '/.cache/wal/' }
 -- config.color_scheme = 'colors-wez'
 config.color_scheme = "Dracula (Official)"
-config.colors = {
-  background = "#000000",
-}
 
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
@@ -19,6 +16,7 @@ config.font = wezterm.font("JetBrainsMono Nerd Font Mono") -- Liga SFMono Nerd F
 config.window_decorations = "NONE | RESIZE"
 config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = 0.75
+config.use_fancy_tab_bar = false
 
 -- If macOS (arm)
 if wezterm.target_triple == "aarch64-apple-darwin" then
@@ -29,7 +27,7 @@ end
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.window_decorations = "RESIZE | TITLE"
   config.default_prog = { "ubuntu" }
-  config.window_background_opacity = 0.1
+  config.window_background_opacity = 0.5
   config.win32_system_backdrop = "Acrylic"
 end
 
