@@ -27,7 +27,7 @@ vim.keymap.set({ "i", "n", "s" }, "<Esc>", clear_search, { expr = true, desc = "
 vim.keymap.set({ "i", "n", "s" }, "<C-c>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 
 -- In insert or command mode, move normally by using Ctrl
-vim.keymap.set({ "i", "n" }, "<C-h>", "<Left>")
-vim.keymap.set({ "i", "n" }, "<C-j>", "<Down>")
-vim.keymap.set({ "i", "n" }, "<C-k>", "<Up>")
-vim.keymap.set({ "i", "n" }, "<C-l>", "<Right>")
+vim.keymap.set("i", "<C-h>", "<Left>")
+vim.keymap.set("i", "<C-j>", "<Down>")
+vim.keymap.set("i", "<C-k>", "<Up>")
+vim.keymap.set("i", "<C-l>", "<Right>")
