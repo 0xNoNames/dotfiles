@@ -2,7 +2,6 @@
 -- -- -- -- -- BINDS -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- --
 local wezterm = require("wezterm")
-local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 
 local module = {}
 
@@ -45,15 +44,12 @@ function module.apply(config)
       key = "Enter",
       action = wezterm.action.ActivateCopyMode,
     },
-  }
-
-  smart_splits.apply_to_config(config, {
-    direction_keys = { "h", "j", "k", "l" },
-    modifiers = {
-      move = "CTRL|SHIFT",
-      resize = "CTRL|ALT",
+    {
+      mods = "CTRL|SHIFT",
+      key = "X",
+      action = wezterm.action.ShowDebugOverlay,
     },
-  })
+  }
 
   -- Change the default click behavior so that it only selects
   -- text and doesn't open hyperlinks
