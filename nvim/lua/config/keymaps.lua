@@ -26,6 +26,8 @@ end
 vim.keymap.set({ "i", "n", "s" }, "<Esc>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 vim.keymap.set({ "i", "n", "s" }, "<C-c>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 
+vim.keymap.set({ "n" }, "<leader>fx", ":!chmod +x %<CR>", { desc = "Make file executable" })
+
 -- In insert or command mode, move normally by using Ctrl
 vim.keymap.set("i", "<C-h>", "<Left>")
 vim.keymap.set("i", "<C-j>", "<Down>")
