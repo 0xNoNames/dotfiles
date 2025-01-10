@@ -10,8 +10,10 @@ local basename = require '../utils/basename'
 local module = {}
 
 function module.apply(config)
+  config.unix_domains = { {
+    name = 'unix',
+  } }
   config.max_fps = 240
-  config.default_workspace = '~'
   config.status_update_interval = 1000
   config.font_size = 12.0
   config.font = wezterm.font 'JetBrainsMono Nerd Font Mono'
