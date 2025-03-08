@@ -7,4 +7,5 @@ foo.*
 *.log
 data
 
-fish/.config/fish/fish_variables
+fish/fish_variables
+

@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export EZA_COLORS:uu\x3d36\x3agu\x3d37\x3asn\x3d32\x3asb\x3d32\x3ada\x3d34\x3aur\x3d34\x3auw\x3d35\x3aux\x3d36\x3aue\x3d36\x3agr\x3d34\x3agw\x3d35\x3agx\x3d36\x3atr\x3d34\x3atw\x3d35\x3atx\x3d36\x3a
 SETUVAR --export HOMEBREW_NO_AUTO_UPDATE:1
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:919491
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:446B93
