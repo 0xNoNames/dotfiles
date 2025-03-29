@@ -3,3 +3,4 @@
 --ignore=DS_Store
 --ignore=.gitattributes
 --ignore=install.sh
+--ignore=nvim_offliner
