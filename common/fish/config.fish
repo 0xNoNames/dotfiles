@@ -43,8 +43,11 @@ alias la 'll -a'
 alias lm 'la -r --sort=modified'
 alias lta 'la -TL'
 alias lx 'eza -lbhHigUmuSa@ --time-style=long-iso --color-scale --group-directories-first'
-alias python python3
-
+alias gl 'git log -a --oneline --graph'
+alias gc 'git commit -m'
+alias ga 'git add'
+alias gps 'git push'
+alias gpl 'git pull'
 
 # -- -- -- FUNCTIONS -- -- -- #
 # Add a new line after a command
