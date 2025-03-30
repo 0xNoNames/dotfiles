@@ -8,6 +8,7 @@ This directory contains all of my dotfiles.
 
 ```bash
 sudo apt install -y fish neovim eza batcat wezterm yazi ncdu stow
+sudo pacman -S fish neovim eza bat wezterm yazi ncdu stow fd fzf television
 # JetBrainsMono Nerd Font
 ```
 
@@ -34,7 +35,7 @@ cd dotfiles
 
 ```bash
 mv ~/.config ~/.config.bak
-stow -v -t ~/ -S aerospace bat fish nvim wezterm wallust
+stow -v -S common desktop
 ```
 
 ## Fonts
@@ -55,3 +56,4 @@ stow -v -t ~/ -S aerospace bat fish nvim wezterm wallust
 - age
 - fzf
 - fd
+- nwg-look (setup gtk)
