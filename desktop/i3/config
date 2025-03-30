@@ -7,6 +7,7 @@ default_floating_border pixel 1
 font pango:JetBrainsMono Nerd Font 9
 
 exec --no-startup-id picom
+exec --no-startup-id dunst
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.gif
 exec --no-startup-id xrandr --output DP-0 --mode 2560x1440 --rate 239.99 --output DP-2 --mode 1920x1080 --rate 239.99
 exec --no-startup-id dex --autostart --environment i3
@@ -36,7 +37,8 @@ bindsym $mod+e exec nemo
 bindsym $mod+Shift+q kill
 
 # A more modern dmenu replacement is rofi:
-bindsym $mod+space exec "rofi -modi drun,run -show drun"
+# bindsym $mod+space exec "rofi -modi drun,run -show drun"
+bindsym $mod+space exec dmenu_run
 
 # change focus
 bindsym $mod+h focus left
@@ -88,6 +90,16 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+workspace 1 output DP-0
+workspace 2 output DP-0
+workspace 3 output DP-0
+workspace 4 output DP-2
+workspace 5 output DP-2
+workspace 6 output DP-2
+workspace 7 output DP-0
+workspace 8 output DP-0
+workspace 9 output DP-0
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -152,4 +164,8 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         status_command i3status
+        tray_output DP-0
+        tray_output DP-2
+        output DP-0
+        output DP-2
 }
