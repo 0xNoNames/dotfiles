@@ -43,11 +43,13 @@ alias la 'll -a'
 alias lm 'la -r --sort=modified'
 alias lta 'la -TL'
 alias lx 'eza -lbhHigUmuSa@ --time-style=long-iso --color-scale --group-directories-first'
-alias gl 'git log -a --oneline --graph'
-alias gc 'git commit -m'
-alias ga 'git add'
-alias gps 'git push'
-alias gpl 'git pull'
+alias python python3
+alias g git
+alias gs "git switch"
+alias gc "git commit -m"
+alias gpl "git pull"
+alias gph "git push"
+alias gl "git log -a --oneline --graph"
 alias lg lazygit
 
 # -- -- -- FUNCTIONS -- -- -- #
