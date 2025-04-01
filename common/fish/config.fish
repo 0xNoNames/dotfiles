@@ -48,6 +48,7 @@ alias gc 'git commit -m'
 alias ga 'git add'
 alias gps 'git push'
 alias gpl 'git pull'
+alias lg lazygit
 
 # -- -- -- FUNCTIONS -- -- -- #
 # Add a new line after a command
