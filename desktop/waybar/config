@@ -1,0 +1,77 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 13,
+    "modules-left": ["clock", "hyprland/workspaces"],
+    "modules-right": ["custom/exit", "pulseaudio",  "network", "tray" ],
+
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+
+    "clock": {
+        "format": "󰥔   {:%I:%M %p}",
+        "format-alt": "󰥔   {:%a, %d. %b  %I:%M %p}",
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "󰂱  {volume}%",
+        "format-muted": "󰖁",
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"],
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰖀", "󰕾"]
+        },
+    },
+
+    "network": {
+        "interface": "eno1",
+        "format": "󰈀   {ipaddr}/{cidr}",
+        "max-length": 50,
+    },
+    
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+        },
+        "sort-by-number": true
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}   {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
+    },
+
+    "tray": {
+        "icon-size": 24,
+        "spacing": 10,
+    },
+
+    "custom/exit": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip-format": "Power menu"
+      }
+}
