@@ -1,6 +1,6 @@
 general {
-      separator = "qweqwe"
-      colors = true
+    separator =  "  "
+      colors = false
       interval = 1
 }
 
