@@ -16,7 +16,10 @@ exec --no-startup-id feh --bg-fill ~/Pictures/berserk_0.jpg
 exec --no-startup-id xrandr --output DP-0 --mode 2560x1440 --rate 239.99 --output DP-2 --mode 1920x1080 --rate 239.99
 # exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- $locker
-exec --no-startup-id nm-applet
+# kill any hanging polybar processes
+exec_always killall polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec --no-startup-id nm-applet
 exec --no-startup-id pasystray 
 exec --no-startup-id discord
 
@@ -159,11 +162,11 @@ for_window [window_type="menu"] floating enable
 for_window [title="Preferences$"] floating enable
 for_window [class="(?i)mplayer"] floating enable
 
-bar {
-        position top
-        tray_output DP-0
-        tray_output DP-2
-        output DP-0
-        output DP-2
-        status_command i3status
-}
+# bar {
+#         position top
+#         tray_output DP-0
+#         tray_output DP-2
+#         output DP-0
+#         output DP-2
+#         status_command i3status
+# }
