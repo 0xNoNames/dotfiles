@@ -2,7 +2,7 @@
 set -gx TERM xterm-256color
 set -gx EDITOR nvim
 set -Ux fish_prompt_pwd_dir_length 0
-set -Ux fish_greeting ''
+set -Ux fish_greeting ""
 set -Ux HOMEBREW_NO_AUTO_UPDATE 1
 set -Ux EZA_COLORS "\
 uu=36:\
@@ -26,23 +26,25 @@ fish_config theme choose "Dracula Official"
 #     source ~/.cache/wal/colors.fish
 # end
 
-fzf_configure_bindings --directory=\cf
-alias history _fzf_search_history
+# -- -- -- BINDS -- -- -- #
+# fzf_configure_bindings --directory=\c\sf
+# alias history _fzf_search_history
 
-bind \cz 'fg 2>/dev/null; commandline -f repaint'
+bind \cz "fg 2>/dev/null; commandline -f repaint"
+bind \cf "$HOME/.config/scripts/tmux-sessionizer.sh"
 
 # -- -- -- ALIASES -- -- -- #
-alias cat 'bat --theme=Dracula'
-alias catp 'cat -pp'
+alias cat "bat --theme=Dracula"
+alias catp "cat -pp"
 alias vim nvim
 alias vi nvim
-alias ll 'eza -lgbF --icons --color=always --group-directories-first'
+alias ll "eza -lgbF --icons --color=always --group-directories-first"
 alias ls ll
-alias lt 'll -TL'
-alias la 'll -a'
-alias lm 'la -r --sort=modified'
-alias lta 'la -TL'
-alias lx 'eza -lbhHigUmuSa@ --time-style=long-iso --color-scale --group-directories-first'
+alias lt "ll -TL"
+alias la "ll -a"
+alias lm "la -r --sort=modified"
+alias lta "la -TL"
+alias lx "eza -lbhHigUmuSa@ --time-style=long-iso --color-scale --group-directories-first"
 alias python python3
 alias g git
 alias gs "git switch"
