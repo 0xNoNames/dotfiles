@@ -1,0 +1,15 @@
+theme = "Dracula"
+shell-integration = fish
+background-opacity = 0.75
+background-blur-radius = 20
+mouse-hide-while-typing = true
+window-decoration = true
+macos-option-as-alt = true
+macos-titlebar-style = hidden
+
+font-family = JetbrainsMono Nerd Font
+font-size = 14
+
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
