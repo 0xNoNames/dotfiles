@@ -20,7 +20,7 @@ gx=36:\
 tr=34:\
 tw=35:\
 tx=36:"
-fish_config theme choose "Dracula Official"
+fish_config theme choose dracula
 
 # if test -e ~/.cache/wal/colors.fish
 #     source ~/.cache/wal/colors.fish
