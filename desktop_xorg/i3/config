@@ -55,7 +55,7 @@ bindsym $mod+Shift+s exec --no-startup-id maim --select "/home/$USER/Pictures/Sc
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date).png" | xclip -selection clipboard -t image/png
 
 # start a terminal
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec ghostty
 
 # open nemo
 bindsym $mod+e exec nemo

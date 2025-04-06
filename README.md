@@ -7,8 +7,8 @@ This directory contains all of my dotfiles.
 > Ensure you have the following installed on your system
 
 ```bash
-sudo apt install -y fish neovim eza batcat wezterm yazi ncdu stow
-sudo pacman -S fish neovim eza bat wezterm yazi ncdu stow fd fzf television
+sudo apt install -y fish neovim eza batcat ghostty yazi ncdu stow tmux
+sudo pacman -S fish neovim eza bat ghostty yazi ncdu stow fd fzf television tmux
 # JetBrainsMono Nerd Font
 ```
 
@@ -46,8 +46,9 @@ stow -v -S common desktop
 ## Applications
 
 - wallust
-- wezterm
+- ghostty
 - fish
+- tmux
 - neovim
 - batcat
 - eza
