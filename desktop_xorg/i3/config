@@ -163,11 +163,6 @@ for_window [window_type="menu"] floating enable
 for_window [title="Preferences$"] floating enable
 for_window [class="(?i)mplayer"] floating enable
 
-# bar {
-#         position top
-#         tray_output DP-0
-#         tray_output DP-2
-#         output DP-0
-#         output DP-2
-#         status_command i3status
-# }
+assign [class="com.mitchellh.ghostty"] 1
+assign [class="firefox"] 2
+assign [class="discord"] 4
