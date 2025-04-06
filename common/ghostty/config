@@ -3,7 +3,7 @@ shell-integration = fish
 background-opacity = 0.75
 background-blur-radius = 20
 mouse-hide-while-typing = true
-window-decoration = true
+window-decoration = none
 macos-option-as-alt = true
 macos-titlebar-style = hidden
 
