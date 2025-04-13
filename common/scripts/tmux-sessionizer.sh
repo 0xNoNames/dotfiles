@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-selected=$(find ~/Projects ~/Gitlab ~/Github -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
+selected=$(find ~/Projects ~/Gitlab ~/Github -mindepth 1 -maxdepth 1 -type d 2>/dev/null | sort --ignore-case | fzf --tac)
 
 if [[ -z $selected ]]; then
   exit 0
