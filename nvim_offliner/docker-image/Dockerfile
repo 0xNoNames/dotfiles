@@ -1,6 +1,6 @@
 FROM archlinux
 
-RUN pacman -Sy --noconfirm git neovim gcc python npm unzip
+RUN pacman -Syu --noconfirm git neovim gcc python nodejs npm unzip
 
 RUN useradd -ms /bin/bash user && mkdir /home/user/output
 COPY pull_nvim.sh /home/user
