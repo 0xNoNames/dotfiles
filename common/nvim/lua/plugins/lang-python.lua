@@ -1,33 +1,17 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "mypy" } },
+    opts = { ensure_installed = { "mypy", "basedpyright" } },
   },
 
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        ruff = {
-          on_attach = function(client, _)
-            client.server_capabilities.hoverProvider = false
-          end,
-        },
-        pyright = {
-          capabilities = {
-            textDocument = {
-              publishDiagnostics = {
-                tagSupport = {
-                  valueSet = { 2 },
-                },
-              },
-            },
-          },
+        basedpyright = {
           settings = {
-            pyright = {
-              disableOrganizeImports = true, -- Using Ruff
-            },
-            python = {
+            disableOrganizeImports = true, -- Using Ruff
+            basedpyright = {
               analysis = {
                 ignore = { "*" }, -- Using Ruff
                 typeCheckingMode = "off", -- Using mypy
@@ -37,6 +21,20 @@ return {
         },
       },
     },
+    --   config = function()
+    --     -- local lspconfig = require("lspconfig")
+    --     -- Optional: Only required if you need to update the language server settings
+    --     vim.lsp.config("ty", {
+    --       init_options = {
+    --         settings = {
+    --           -- ty language server settings go here
+    --         },
+    --       },
+    --     })
+    --
+    --     -- Required: Enable the language server
+    --     vim.lsp.enable("ty")
+    --   end,
   },
 
   {
