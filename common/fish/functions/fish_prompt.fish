@@ -81,5 +81,5 @@ function fish_prompt
         set repo_info "$blue $repo_type:($repo_branch$blue)"
     end
 
-    echo -n -s $cwd $repo_info $normal ' ' $arrow ' '
+    echo -n -s $cwd $repo_info $normal ' ' $arrow
 end
