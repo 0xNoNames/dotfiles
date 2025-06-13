@@ -1,19 +1,7 @@
 return {
   -- {
-  --   "uZer/pywal16.nvim",
-  -- },
-
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "pywal16",
-  --   },
-  -- },
-  -- {
   --   "maxmx03/dracula.nvim",
   --   lazy = false,
-  --   priority = 1000,
-  --   opts = {},
   -- },
   {
     "rebelot/kanagawa.nvim",
@@ -31,7 +19,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "dracula",
     },
   },
 }

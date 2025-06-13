@@ -20,16 +20,10 @@ gx=36:\
 tr=34:\
 tw=35:\
 tx=36:"
+
 fish_config theme choose dracula
 
-# if test -e ~/.cache/wal/colors.fish
-#     source ~/.cache/wal/colors.fish
-# end
-
 # -- -- -- BINDS -- -- -- #
-# fzf_configure_bindings --directory=\c\sf
-# alias history _fzf_search_history
-
 bind \cz "fg 2>/dev/null; commandline -f repaint"
 bind \cf "tmux neww $HOME/.config/scripts/tmux-sessionizer.sh"
 bind \cs "tmux neww $HOME/.config/scripts/tmux-switcher.sh"
@@ -59,15 +53,3 @@ if status is-interactive
     and not set -q TMUX
     exec tmux new-session -As home
 end
-
-# -- -- -- FUNCTIONS -- -- -- #
-# Add a new line after a command
-# function postexec_test --on-event fish_postexec
-#     echo
-# end
-
-# function wallpaper
-#     wallust run -s -C ~/.config/wallust/wallust.toml "$argv[1]"
-#     automator -i "$argv[1]" ~/Documents/wallpaper.workflow
-#     source ~/.cache/wal/colors.fish
-# end
