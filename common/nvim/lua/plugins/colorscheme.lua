@@ -1,8 +1,4 @@
 return {
-  -- {
-  --   "maxmx03/dracula.nvim",
-  --   lazy = false,
-  -- },
   {
     "rebelot/kanagawa.nvim",
     lazy = true,
