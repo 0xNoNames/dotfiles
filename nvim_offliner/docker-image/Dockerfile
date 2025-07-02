@@ -1,4 +1,4 @@
-FROM archlinux
+FROM --platform=linux/amd64 archlinux
 
 RUN pacman -Syu --noconfirm git neovim gcc python nodejs npm unzip
 
