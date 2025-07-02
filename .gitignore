@@ -11,3 +11,6 @@ fish/fish_variables
 
 common/fish/fish_variables
 .DS_Store
+
+common/fish/completions/docker.fish
+common/fish/completions/kubectl.fish
