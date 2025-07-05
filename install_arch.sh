@@ -25,6 +25,7 @@ sudo pacman -Syu \
   just \
   kalamine \
   uv \
+  pavucontrol \
   networkmanager
 
 echo '[2/4] Backup-ing current configuration...'
