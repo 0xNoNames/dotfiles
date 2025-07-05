@@ -16,6 +16,8 @@ sudo pacman -Syu \
   ncdu \
   fzf \
   ripgrep \
+  unzip \
+  7zip \
   npm \
   fd \
   nwg-look \
