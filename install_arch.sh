@@ -1,7 +1,32 @@
 #!/bin/bash
 
 echo '[1/4] Installing required binaries...'
-sudo pacman -Syu ish neovim eza bat tmux yazi ncdu stow ghostty
+sudo pacman -Syu \
+  stow \
+  ghostty \
+  fish \
+  neovim \
+  eza \
+  bat \
+  tmux \
+  yazi \
+  ncdu \
+  fzf \
+  ripgrep \
+  npm \
+  fd \
+  nwg-look \
+  waybar \
+  mako \
+  xclip \
+  hyprpaper hypridle hyprlock hyprpolkitagent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+  github-cli \
+  man \
+  just \
+  kalamine \
+  uv \
+  networkmanager
+
 echo '[2/4] Backup-ing current configuration...'
 mv ~/.config ~/.config.bak
 echo '[3/4] Installing configurations using STOW...'
