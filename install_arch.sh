@@ -18,7 +18,7 @@ sudo pacman -Syu \
   nwg-look \
   waybar \
   mako \
-  xclip \
+  wh-clipboard \
   hyprpaper hypridle hyprlock hyprpolkitagent xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
   github-cli \
   man \
