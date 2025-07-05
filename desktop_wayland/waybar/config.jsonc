@@ -1,12 +1,12 @@
 {
   "modules-left": ["clock", "hyprland/workspaces", "hyprland/mode"],
   "modules-right": [
-    "custom/wlogout",
+    "tray",
     "cpu",
     "memory",
     "network",
     "pulseaudio",
-    "tray",
+    "custom/wlogout",
   ],
 
   "hyprland/workspaces": {
