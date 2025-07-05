@@ -1,19 +1,12 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 13,
     "modules-left": ["clock", "hyprland/workspaces"],
     "modules-right": ["custom/exit", "pulseaudio",  "network", "tray" ],
 
-    "battery": {
-        "format": "{icon}  {capacity}%",
-        "format-charging": "󰂄  {capacity}%",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    },
-
     "clock": {
-        "format": "󰥔   {:%I:%M %p}",
-        "format-alt": "󰥔   {:%a, %d. %b  %I:%M %p}",
+        "format": "󰥔  {:%a, %d. %b  %I:%M:%S %p}",
+        "tooltip-format": " menu"
     },
 
     "pulseaudio": {
@@ -65,7 +58,7 @@
     },
 
     "tray": {
-        "icon-size": 24,
+        "icon-size": 18,
         "spacing": 10,
     },
 
