@@ -22,7 +22,7 @@ fi
 if [[ "$1" == "lock" ]]; then
   echo ":: Lock"
   sleep 0.5
-  /home/user/.config/hypr/scripts/lock.sh
+  hyprlock
 fi
 
 if [[ "$1" == "reboot" ]]; then
@@ -46,7 +46,7 @@ fi
 if [[ "$1" == "suspend" ]]; then
   echo ":: Suspend"
   sleep 0.5
-  /home/user/.config/hypr/scripts/lock.sh &
+  hyprlock &
   disown && systemctl suspend
 fi
 
