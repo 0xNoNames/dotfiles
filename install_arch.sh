@@ -1,10 +1,13 @@
 #!/bin/bash
 
-echo '[1/4] Installing required binaries...'
+echo '[1/6] Installing required binaries...'
 sudo pacman -Syu \
+  networkmanager \
   stow \
   ghostty \
   fish \
+  nautilus \
+  nautilus-image-converter \
   neovim \
   eza \
   bat \
@@ -26,11 +29,19 @@ sudo pacman -Syu \
   kalamine \
   uv \
   pavucontrol \
-  networkmanager
+  vlc \
+  gnome-disk-utility \
+  ttf-jetbrains-mono-nerd \
+  ttf-roboto
 
-echo '[2/4] Backup-ing current configuration...'
+echo '[2/6] Backup-ing current configuration...'
 mv ~/.config ~/.config.bak
-echo '[3/4] Installing configurations using STOW...'
+echo '[3/6] Installing configurations using STOW...'
 stow -v common
-echo '[4/4] Setting fish as default shell'
+echo '[4/6] Setting fish as default shell'
 chsh -s /usr/bin/fish
+
+echo '[5/6] Install yay and run the following commands'
+echo 'yay -S ttf-roboto-serif wlogout nautilus-open-any-terminal vesktop'
+
+echo '[6/6] Setup fonts and theme using nwg-look'
