@@ -8,7 +8,7 @@
 
 #waybar {
   background: transparent;
-  color: #ffffff;
+  color: #fff;
 }
 
 #workspaces {
@@ -17,15 +17,15 @@
 }
 
 #workspaces button {
-  color: #cccccc;
-  padding: 4px;
+  color: #bbb;
+  padding: 0 2px;
   font-size: 14px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 #workspaces button.active {
-  color: #ffffff;
-  border: 1px solid white;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 #workspaces button.urgent {
@@ -34,7 +34,7 @@
 
 #mode {
   background-color: #64727d;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid #fff;
 }
 
 #custom-wlogout,
@@ -50,8 +50,8 @@
   margin: 4px;
   padding: 8px 10px 8px 10px;
   background-color: rgba(0, 0, 0, 0.3);
-  color: #ffffff;
-  font-size: 11px;
+  color: #fff;
+  font-size: 12px;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -63,7 +63,7 @@
 }
 
 label:focus {
-  background-color: #000000;
+  background-color: #000;
 }
 
 #network.disconnected {
