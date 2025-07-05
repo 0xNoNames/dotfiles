@@ -14,3 +14,5 @@ common/fish/fish_variables
 
 common/fish/completions/docker.fish
 common/fish/completions/kubectl.fish
+
+lazy-lock.json
