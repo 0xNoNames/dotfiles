@@ -20,6 +20,7 @@
   color: #cccccc;
   padding: 4px;
   font-size: 14px;
+  border: 1px solid transparent;
 }
 
 #workspaces button.active {
