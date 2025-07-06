@@ -1,5 +1,6 @@
 {
-  "modules-left": ["clock", "hyprland/workspaces", "hyprland/mode"],
+  "modules-left": ["clock", "hyprland/mode"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "tray",
     "cpu",

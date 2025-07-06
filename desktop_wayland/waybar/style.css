@@ -13,13 +13,13 @@
 
 #workspaces {
   background: rgba(0, 0, 0, 0.3);
-  margin: 4px;
+  margin: 10px 0 10px 0;
 }
 
 #workspaces button {
   color: #bbb;
   padding: 0 2px;
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -47,19 +47,11 @@
 #tray,
 #mode {
   border-radius: 25px;
-  margin: 4px;
-  padding: 8px 10px 8px 10px;
+  margin: 5px 2px 0px 2px;
+  padding: 6px 12px 6px 12px;
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   font-size: 12px;
-}
-
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
 }
 
 label:focus {
@@ -72,12 +64,16 @@ label:focus {
 
 #custom-wlogout,
 #network {
-  padding-right: 13px;
+  padding-right: 16px;
 }
 
 #clock {
-  border-radius: 25px 0 0 25px;
-  font-size: 12px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+#custom-wlogout {
+  margin-right: 10px;
 }
 
 #tray > .passive {
