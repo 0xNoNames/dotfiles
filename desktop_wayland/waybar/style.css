@@ -62,9 +62,8 @@ label:focus {
   background-color: #f53c3c;
 }
 
-#custom-wlogout,
-#network {
-  padding-right: 16px;
+#custom-wlogout {
+  padding-left: 14px;
 }
 
 #clock {

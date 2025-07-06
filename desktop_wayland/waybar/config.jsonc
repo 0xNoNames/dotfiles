@@ -49,14 +49,14 @@
   },
 
   "cpu": {
-    "format": " {usage}%",
+    "format": "  {usage}%",
   },
   "memory": {
-    "format": " {}%",
+    "format": "  {}%",
   },
 
   "network": {
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "   {essid} ({signalStrength}%)",
     "format-ethernet": " {ifname}",
     "tooltip-format": " {ifname} via {gwaddr}",
     "format-linked": " {ifname} (No IP)",
@@ -80,7 +80,7 @@
   },
 
   "custom/wlogout": {
-    "format": "",
+    "format": " ",
     "on-click": "wlogout",
     "tooltip-format": "Power menu",
   },
