@@ -1,9 +1,0 @@
-backend = "wal"
-check_contrast = true
-palette = "dark16"
-# palette = "ansidark"
-
-[templates]
-neovim = { template = '/Users/nonames/.config/wallust/templates/neovim', target = '/Users/nonames/.cache/wal/colors-wal.vim' }
-fish = { template = '/Users/nonames/.config/wallust/templates/fish', target = '/Users/nonames/.cache/wal/colors.fish' }
-wezterm = { template = '/Users/nonames/.config/wallust/templates/wezterm', target = '/Users/nonames/.cache/wal/colors-wez.toml' }

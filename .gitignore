@@ -16,3 +16,4 @@ common/fish/completions/docker.fish
 common/fish/completions/kubectl.fish
 
 lazy-lock.json
+*.bak
