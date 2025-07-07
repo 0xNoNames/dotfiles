@@ -34,7 +34,8 @@ sudo pacman -Syu \
   vlc \
   gnome-disk-utility \
   ttf-jetbrains-mono-nerd \
-  ttf-roboto
+  ttf-roboto \
+  tela-circle-icon-theme-standard
 
 echo '[2/6] Backup-ing current configuration...'
 mv ~/.config ~/.config.bak
