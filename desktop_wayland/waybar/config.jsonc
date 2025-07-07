@@ -57,19 +57,20 @@
 
   "network": {
     "format-wifi": "   {essid} ({signalStrength}%)",
-    "format-ethernet": " {ifname}",
-    "tooltip-format": " {ifname} via {gwaddr}",
-    "format-linked": " {ifname} (No IP)",
+    "format": "󰈀 {ifname}: {ipaddr}/{cidr}",
+    "format-ethernet": "󰈀  {ifname}",
+    "tooltip-format": "󰈀 {ifname} via {gwaddr}",
+    "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "Disconnected ⚠ {ifname}",
-    "format-alt": " {ifname}: {ipaddr}/{cidr}",
+    "format-alt": "󰈀  {ifname}",
   },
 
   "pulseaudio": {
     "scroll-step": 5,
     "format": "{icon}  {volume}%  {format_source}",
     "format-bluetooth": " {icon} {volume}% {format_source}",
-    "format-bluetooth-muted": "  {icon} {format_source}",
-    "format-muted": "  {format_source}",
+    "format-muted": "󰖁  {format_source}",
+    "format-bluetooth-muted": "󰖁  {icon} {format_source}",
     "format-source": " {volume}%",
     "format-source-muted": "",
     "format-icons": {
