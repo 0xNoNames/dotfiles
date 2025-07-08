@@ -25,6 +25,8 @@ fish_config theme choose dracula
 
 # -- -- -- BINDS -- -- -- #
 bind \cz "fg 2>/dev/null; commandline -f repaint"
+bind \cf "tmux neww $HOME/.config/scripts/tmux-sessionizer.sh"
+bind \cs "tmux neww $HOME/.config/scripts/tmux-switcher.sh"
 
 # -- -- -- ALIASES -- -- -- #
 alias cat "bat --theme=Dracula"
