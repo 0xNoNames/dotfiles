@@ -4,6 +4,7 @@
     "tray",
     "cpu",
     "memory",
+    "disk",
     "network",
     "pulseaudio",
     "custom/wlogout",
@@ -52,7 +53,12 @@
     "format": "  {usage}%",
   },
   "memory": {
-    "format": "  {}%",
+    "format": "  {used:0.1f}/{total:0.1f}G",
+  },
+  "disk": {
+    "interval": 30,
+    "format": "/ {specific_free:0.2f}G",
+    "unit": "GB",
   },
 
   "network": {
