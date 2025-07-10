@@ -1,5 +1,5 @@
 {
-  "modules-left": ["hyprland/workspaces", "hyprland/mode"],
+  "modules-left": ["hyprland/workspaces"],
   "modules-right": [
     "tray",
     "cpu",
@@ -56,13 +56,11 @@
   },
 
   "network": {
+    "format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
     "format-wifi": "   {essid} ({signalStrength}%)",
-    "format": "󰈀 {ifname}: {ipaddr}/{cidr}",
-    "format-ethernet": "󰈀  {ifname}",
     "tooltip-format": "󰈀 {ifname} via {gwaddr}",
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "Disconnected ⚠ {ifname}",
-    "format-alt": "󰈀  {ifname}",
   },
 
   "pulseaudio": {
@@ -77,7 +75,7 @@
       "default": ["", "", ""],
     },
     "on-click": "pavucontrol",
-    "on-click-right": "foot -a pw-top pw-top",
+    // "on-click-right": "foot -a pw-top pw-top",
   },
 
   "custom/wlogout": {
