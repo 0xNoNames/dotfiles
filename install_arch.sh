@@ -33,6 +33,7 @@ sudo pacman -Syu \
   pavucontrol \
   vlc \
   gnome-disk-utility \
+  gnome-calculator \
   ttf-jetbrains-mono-nerd \
   ttf-roboto \
   tela-circle-icon-theme-standard
