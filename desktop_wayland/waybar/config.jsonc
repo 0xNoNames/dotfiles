@@ -7,6 +7,7 @@
     "disk",
     "network",
     "pulseaudio",
+    "idle_inhibitor",
     "custom/wlogout",
     "clock",
   ],
@@ -32,6 +33,14 @@
   "tray": {
     "icon-size": 21,
     "spacing": 10,
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " ",
+    },
   },
 
   "clock": {
