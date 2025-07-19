@@ -6,8 +6,6 @@ sudo pacman -Syu \
   stow \
   ghostty \
   fish \
-  nautilus \
-  nautilus-image-converter \
   neovim \
   eza \
   bat \
@@ -34,9 +32,13 @@ sudo pacman -Syu \
   vlc \
   gnome-disk-utility \
   gnome-calculator \
+  gnome-text-editor \
+  showtime \
   ttf-jetbrains-mono-nerd \
   ttf-roboto \
   tela-circle-icon-theme-standard
+
+# pacman -S noto-fonts-emoji or yay -S ttf-twemoji
 
 echo '[2/6] Backup-ing current configuration...'
 mv ~/.config ~/.config.bak
