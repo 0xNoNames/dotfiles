@@ -34,6 +34,12 @@ sudo pacman -Syu \
   gnome-calculator \
   gnome-text-editor \
   showtime \
+  nautilus \
+  nautilus-image-converter \
+  baobab \
+  decibels \
+  evince \
+  eog \
   ttf-jetbrains-mono-nerd \
   ttf-roboto \
   tela-circle-icon-theme-standard
