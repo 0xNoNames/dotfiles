@@ -42,7 +42,8 @@ sudo pacman -Syu \
   eog \
   ttf-jetbrains-mono-nerd \
   ttf-roboto \
-  tela-circle-icon-theme-standard
+  tela-circle-icon-theme-standard \
+  pastel
 
 # pacman -S noto-fonts-emoji or yay -S ttf-twemoji
 
