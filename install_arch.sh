@@ -29,6 +29,7 @@ sudo pacman -Syu \
   kalamine \
   uv \
   pavucontrol \
+  network-manager-applet \
   vlc \
   gnome-disk-utility \
   gnome-calculator \
