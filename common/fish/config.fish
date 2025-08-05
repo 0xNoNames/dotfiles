@@ -49,6 +49,8 @@ alias gph "git push"
 alias gl "git log -a --oneline --graph"
 alias lg lazygit
 
+zoxide init fish | source
+
 if status is-interactive
     and not set -q TMUX
     exec tmux new-session -As home
