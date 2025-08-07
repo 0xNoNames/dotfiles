@@ -13,7 +13,7 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without copying" })
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without copying" })
 
 -- CTRL + C as escape
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Disable Q (ex mode in vim)
 vim.keymap.set("n", "Q", "<nop>")
 
