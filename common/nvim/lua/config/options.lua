@@ -1,6 +1,7 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+vim.opt.winborder = "rounded"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = true
@@ -18,7 +19,7 @@ vim.opt.showmode = false
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 
 -- Enable break indent
 vim.opt.breakindent = true
