@@ -72,3 +72,6 @@ vim.g.lazyvim_python_ruff = "ruff"
 
 -- Disable smooth scrolling
 vim.g.snacks_scroll = false
+
+vim.opt.showmode = true
+vim.opt.statusline = "%<%f %h%w%m%r%=%-14.(%l,%c%V%) %P"
