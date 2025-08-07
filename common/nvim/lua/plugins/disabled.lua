@@ -5,5 +5,7 @@ return {
   { "catppuccin/nvim", enabled = false },
   { "folke/tokyonight.nvim", enabled = false },
   { "folke/flash.nvim", enabled = false },
+  { "folke/noice.nvim", enabled = false },
   { "ibhagwan/fzf-lua", enabled = false },
+  { "akinsho/bufferline.nvim", enabled = false },
 }
