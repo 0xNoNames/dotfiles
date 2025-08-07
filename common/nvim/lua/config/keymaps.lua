@@ -13,7 +13,7 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without copying" })
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without copying" })
 
 -- CTRL + C as escape
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Disable Q (ex mode in vim)
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -33,3 +33,13 @@ vim.keymap.set("i", "<C-h>", "<Left>")
 vim.keymap.set("i", "<C-j>", "<Down>")
 vim.keymap.set("i", "<C-k>", "<Up>")
 vim.keymap.set("i", "<C-l>", "<Right>")
+
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>")
+
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
