@@ -1,4 +1,6 @@
--- OPTIONS --
+-- -- -- -- -- -- -- -- -- -- ---
+-- -- -- --  OPTIONS  -- -- -- --
+-- -- -- -- -- -- -- -- -- -- ---
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
@@ -21,6 +23,9 @@ opt.tabstop = 4
 opt.shiftwidth = 2
 opt.smartindent = true
 opt.termguicolors = true
+vim.diagnostic.config({ virtual_text = { spacing = 4, source = "if_many" } })
+opt.timeoutlen = 300 -- Decrease mapped sequence wait time, displays which-key popup sooner
+opt.inccommand = "split" -- Preview substitutions live, as you type!
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = true
@@ -28,16 +33,9 @@ opt.smartcase = true
 opt.incsearch = true
 opt.hlsearch = true
 
--- Decrease mapped sequence wait time, displays which-key popup sooner
-opt.timeoutlen = 300
-
--- Preview substitutions live, as you type!
-opt.inccommand = "split"
-
-vim.diagnostic.config({ virtual_text = { spacing = 4, source = "if_many" } })
-
-
--- KEYBINDS --
+-- -- -- -- -- -- -- -- -- -- -- -
+-- -- -- --  KEYBINDS  -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -
 local map = vim.keymap.set
 vim.g.mapleader = " "
 map("n", "<C-d>", "<C-d>zz")
@@ -47,15 +45,43 @@ map("n", "N", "Nzzzv")
 map("x", "<leader>p", '"_dP', { desc = "Paste without copying" })
 map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without copying" })
 map("i", "<C-c>", "<Esc>")
-map({ "n" }, "<leader>fx", ":!chmod +x %<CR>", { desc = "Make file executable" })
+map({ "n" }, "<leader>x", ":!chmod +x %<CR>", { desc = "Make file executable" })
 map("i", "<C-h>", "<Left>")
 map("i", "<C-j>", "<Down>")
 map("i", "<C-k>", "<Up>")
 map("i", "<C-l>", "<Right>")
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
 -- Disable Q (ex mode in vim)
 map("n", "Q", "<nop>")
+
+-- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- --  LSP KEYMAP  -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- ---
+local lsp = vim.lsp
+map("n", "gd", lsp.buf.definition, { desc = "Goto Definition" })
+map("n", "gr", lsp.buf.references, { desc = "References" })
+map("n", "gI", lsp.buf.implementation, { desc = "Goto Implementation" })
+map("n", "gy", lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
+map("n", "gD", lsp.buf.declaration, { desc = "Goto Declaration" })
+map({ "n", "v" }, "<leader>ca", lsp.buf.code_action, { desc = "Code Action" })
+map({ "n", "v" }, "<leader>cc", lsp.codelens.run, { desc = "Run Codelens" })
+map("n", "<leader>cC", lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
+map("n", "<leader>cr", lsp.buf.rename, { desc = "Rename" })
+
+map("n", "K", function()
+  return lsp.buf.hover()
+end, { desc = "Hover" })
+
+map("n", "gK", function()
+  return lsp.buf.signature_help()
+end, { desc = "Signature Help" })
+
+map("i", "<c-k>", function()
+  return lsp.buf.signature_help()
+end, { desc = "Signature Help" })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 function clear_search()
@@ -65,31 +91,136 @@ end
 map({ "i", "n", "s" }, "<Esc>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 map({ "i", "n", "s" }, "<C-c>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 
-
--- PLUGIN --
-
+-- -- -- -- -- -- -- -- -- -- ---
+-- -- -- --  PLUGINS  -- -- -- --
+-- -- -- -- -- -- -- -- -- -- ---
 vim.pack.add({
-	-- { src = "https://github.com/dmtrKovalenko/fff.nvim" },
-	-- { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-	{ src = "https://github.com/binhtran432k/dracula.nvim"},
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = 'https://github.com/neovim/nvim-lspconfig' },
-	{ src = 'https://github.com/folke/which-key.nvim' },
-	{ src = 'https://github.com/folke/trouble.nvim' },
-	{ src = 'https://github.com/WilliamHsieh/overlook.nvim' },
+  { src = "https://github.com/MagicDuck/grug-far.nvim" },
+  { src = "https://github.com/binhtran432k/dracula.nvim" },
+  { src = "https://github.com/dmtrKovalenko/fff.nvim" },
+  { src = "https://github.com/echasnovski/mini.diff" },
+  { src = "https://github.com/echasnovski/mini.files" },
+  { src = "https://github.com/folke/trouble.nvim" },
+  { src = "https://github.com/folke/which-key.nvim" },
+  { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/mfussenegger/nvim-lint" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/saghen/blink.cmp" },
+  { src = "https://github.com/stevearc/conform.nvim" },
+})
+-- check lazyvim tools
+-- treesitter
+-- mypy + basedpyright + ruff
+-- toggle diagnostics
+-- maybe underline misspelled
+
+lsp.enable({ "lua_ls", "ruff", "basedpyright" }) -- uv tool install ruff basedpyright mypy
+
+require("blink.cmp").setup() -- cd ~/.local/share/nvim/site/pack/core/opt/blink.cmp && cargo build --release
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "ruff_format", "ruff_organize_imports" },
+  },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
+})
+require("fff").setup() -- cd ~/.local/share/nvim/site/pack/core/opt/fff.nvim && cargo build --release
+require("grug-far").setup()
+require("mason").setup()
+require("mini.diff").setup()
+require("mini.files").setup()
+require("trouble").setup()
+require("telescope").setup()
+vim.lsp.config("basedpyright", {
+  settings = {
+    ["basedpyright"] = {
+      disableOrganizeImports = true, -- Using Ruff
+      basedpyright = {
+        analysis = {
+          ignore = { "*" }, -- Using Ruff
+          typeCheckingMode = "off", -- Using mypy
+        },
+      },
+    },
+  },
 })
 
+require("nvim-treesitter").setup({
+  ensure_installed = {
+    "bash",
+    "rust",
+    "c",
+    "diff",
+    "html",
+    "javascript",
+    "lua",
+    "luadoc",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "regex",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
+    "css",
+    "query",
+    "toml",
+    "json",
+  },
+})
 
-require "mason".setup()
-require "trouble".setup()
+local lint = require("lint")
+lint.linters_by_ft = {
+  python = { "mypy" },
+}
 
--- map('n', '<leader><leader>', ":Pick files<CR>")
--- map('n', '<leader>h', ":Pick help<CR>")
-map('n', '<leader>e', ":Oil<CR>")
-map('n', "<leader>x",  "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", {desc = "Buffer Diagnostics (Trouble)"})
-vim.lsp.enable({ "lua_ls", "ruff", "ty" })
+vim.list_extend(lint.linters.mypy.args, {
+  "--python-executable",
+  function()
+    return vim.fn.exepath("python3") or vim.fn.exepath("python")
+  end,
+})
 
--- colors
-require "dracula".setup({ transparent = true })
+-- Create autocommand which carries out the actual linting
+-- on the specified events.
+local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+  group = lint_augroup,
+  callback = function()
+    lint.try_lint()
+  end,
+})
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -
+-- -- -- --  PLUGIN KEYMAPS  -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -
+map("n", "<leader><leader>", function()
+  require("fff").find_files()
+end, { desc = "Open file picker" })
+map("n", "<leader>e", ":lua MiniFiles.open()<CR>")
+map("n", "<leader>x", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
+map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>")
+map({ "n", "v" }, "<leader>sr", function()
+  local grug = require("grug-far")
+  local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+  grug.open({
+    transient = true,
+    prefills = {
+      filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+    },
+  })
+end, { desc = "Search and Replace" })
+
+-- -- -- -- -- -- -- -- -- -- --
+-- -- -- --  COLORS  -- -- -- --
+-- -- -- -- -- -- -- -- -- -- --
+require("dracula").setup({ transparent = true })
 vim.cmd("colorscheme dracula")
 vim.cmd(":hi statusline guibg=NONE")
