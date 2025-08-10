@@ -46,13 +46,13 @@ map("n", "N", "Nzzzv")
 map("x", "<leader>p", '"_dP', { desc = "Paste without copying" })
 map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without copying" })
 map("i", "<C-c>", "<Esc>")
-map({ "n" }, "<leader>x", ":!chmod +x %<CR>", { desc = "Make file executable" })
+map({ "n" }, "<leader>x", "<CMD>!chmod +x %<CR>", { desc = "Make file executable" })
 map("i", "<C-h>", "<Left>")
 map("i", "<C-j>", "<Down>")
 map("i", "<C-k>", "<Up>")
 map("i", "<C-l>", "<Right>")
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<S-h>", "<CMD>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "<S-l>", "<CMD>bnext<cr>", { desc = "Next Buffer" })
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 -- Disable Q (ex mode in vim)
@@ -90,8 +90,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("i", "<c-k>", function()
       return lsp.buf.signature_help()
     end, { desc = "Signature Help" })
-    map("n", "<leader>x", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
-    map("n", "<leader>z", ":lua vim.diagnostic.open_float()<CR>", { desc = "Line float diagnostic" })
+    map("n", "<leader>x", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
+    map("n", "<leader>z", "<CMD>lua vim.diagnostic.open_float()<CR>", { desc = "Line float diagnostic" })
   end,
 })
 
@@ -107,6 +107,7 @@ vim.pack.add({
   { src = "https://github.com/echasnovski/mini.icons" },
   { src = "https://github.com/folke/trouble.nvim" },
   { src = "https://github.com/folke/which-key.nvim" },
+  { src = "https://github.com/kdheepak/lazygit.nvim" },
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/mfussenegger/nvim-lint" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -119,10 +120,8 @@ vim.pack.add({
   { src = "https://github.com/stevearc/oil.nvim" },
 })
 
--- check lazyvim tools
 -- mypy + basedpyright + ruff
 -- toggle diagnostics, format and spelling
--- maybe underline misspelled
 
 lsp.enable({ "lua_ls", "ruff", "basedpyright" }) -- uv tool install ruff basedpyright mypy
 
@@ -213,11 +212,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 -- -- -- -- -- -- -- -- -- -- -- -- -- -
 -- -- -- --  PLUGIN KEYMAPS  -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -
-map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>")
-map({ "i", "n" }, "<leader>e", function()
+map("n", "<leader>sg", "<CMD>Telescope live_grep<CR>", { desc = "Open live grep" })
+map("n", "<leader>g", "<CMD>LazyGit<CR>", { desc = "Open lazygit" })
+map("n", "<leader>e", function()
   require("oil").toggle_float()
-end, { desc = "Open oil" })
-map({ "n", "v" }, "<leader>sr", function()
+end, { desc = "Open Oil" })
+map("n", "<leader>sr", function()
   local grug = require("grug-far")
   local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
   grug.open({
