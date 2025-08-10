@@ -26,6 +26,7 @@ opt.termguicolors = true
 vim.diagnostic.config({ virtual_text = { spacing = 4, source = "if_many" } })
 opt.timeoutlen = 300 -- Decrease mapped sequence wait time, displays which-key popup sooner
 opt.inccommand = "split" -- Preview substitutions live, as you type!
+opt.spell = true -- Add spelling check
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = true
@@ -34,7 +35,7 @@ opt.incsearch = true
 opt.hlsearch = true
 
 -- -- -- -- -- -- -- -- -- -- -- -
--- -- -- --  KEYBINDS  -- -- -- --
+-- -- -- --  KEY BINDS  -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -
 local map = vim.keymap.set
 vim.g.mapleader = " "
@@ -56,33 +57,6 @@ map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 -- Disable Q (ex mode in vim)
 map("n", "Q", "<nop>")
-
--- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- --  LSP KEYMAP  -- -- -- --
--- -- -- -- -- -- -- -- -- -- -- ---
-local lsp = vim.lsp
-map("n", "gd", lsp.buf.definition, { desc = "Goto Definition" })
-map("n", "gr", lsp.buf.references, { desc = "References" })
-map("n", "gI", lsp.buf.implementation, { desc = "Goto Implementation" })
-map("n", "gy", lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
-map("n", "gD", lsp.buf.declaration, { desc = "Goto Declaration" })
-map({ "n", "v" }, "<leader>ca", lsp.buf.code_action, { desc = "Code Action" })
-map({ "n", "v" }, "<leader>cc", lsp.codelens.run, { desc = "Run Codelens" })
-map("n", "<leader>cC", lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
-map("n", "<leader>cr", lsp.buf.rename, { desc = "Rename" })
-
-map("n", "K", function()
-  return lsp.buf.hover()
-end, { desc = "Hover" })
-
-map("n", "gK", function()
-  return lsp.buf.signature_help()
-end, { desc = "Signature Help" })
-
-map("i", "<c-k>", function()
-  return lsp.buf.signature_help()
-end, { desc = "Signature Help" })
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 function clear_search()
   vim.cmd("noh")
@@ -91,15 +65,46 @@ end
 map({ "i", "n", "s" }, "<Esc>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 map({ "i", "n", "s" }, "<C-c>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 
+-- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- --  LSP KEYMAP  -- -- -- --
+-- -- -- -- -- -- -- -- -- -- -- ---
+local lsp = vim.lsp
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("my.lsp", {}),
+  callback = function(args)
+    map("n", "gd", lsp.buf.definition, { desc = "Goto Definition" })
+    map("n", "gr", lsp.buf.references, { desc = "References" })
+    map("n", "gI", lsp.buf.implementation, { desc = "Goto Implementation" })
+    map("n", "gy", lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
+    map("n", "gD", lsp.buf.declaration, { desc = "Goto Declaration" })
+    map({ "n", "v" }, "<leader>ca", lsp.buf.code_action, { desc = "Code Action" })
+    map({ "n", "v" }, "<leader>cc", lsp.codelens.run, { desc = "Run Codelens" })
+    map("n", "<leader>cC", lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
+    map("n", "<leader>cr", lsp.buf.rename, { desc = "Rename" })
+    map("n", "K", function()
+      return lsp.buf.hover()
+    end, { desc = "Hover" })
+    map("n", "gK", function()
+      return lsp.buf.signature_help()
+    end, { desc = "Signature Help" })
+    map("i", "<c-k>", function()
+      return lsp.buf.signature_help()
+    end, { desc = "Signature Help" })
+    map("n", "<leader>x", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
+    map("n", "<leader>z", ":lua vim.diagnostic.open_float()<CR>", { desc = "Line float diagnostic" })
+  end,
+})
+
 -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- --  PLUGINS  -- -- -- --
 -- -- -- -- -- -- -- -- -- -- ---
 vim.pack.add({
   { src = "https://github.com/MagicDuck/grug-far.nvim" },
+  { src = "https://github.com/benomahony/oil-git.nvim" },
   { src = "https://github.com/binhtran432k/dracula.nvim" },
   { src = "https://github.com/dmtrKovalenko/fff.nvim" },
   { src = "https://github.com/echasnovski/mini.diff" },
-  { src = "https://github.com/echasnovski/mini.files" },
+  { src = "https://github.com/echasnovski/mini.icons" },
   { src = "https://github.com/folke/trouble.nvim" },
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://github.com/mason-org/mason.nvim" },
@@ -108,13 +113,15 @@ vim.pack.add({
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
   { src = "https://github.com/saghen/blink.cmp" },
   { src = "https://github.com/stevearc/conform.nvim" },
+  { src = "https://github.com/stevearc/oil.nvim" },
 })
+
 -- check lazyvim tools
--- treesitter
 -- mypy + basedpyright + ruff
--- toggle diagnostics
+-- toggle diagnostics, format and spelling
 -- maybe underline misspelled
 
 lsp.enable({ "lua_ls", "ruff", "basedpyright" }) -- uv tool install ruff basedpyright mypy
@@ -132,20 +139,25 @@ require("conform").setup({
 })
 require("fff").setup() -- cd ~/.local/share/nvim/site/pack/core/opt/fff.nvim && cargo build --release
 require("grug-far").setup()
+require("mini.icons").setup()
 require("mason").setup()
 require("mini.diff").setup()
-require("mini.files").setup()
-require("trouble").setup()
+require("oil").setup({
+  columns = {
+    "icon",
+  },
+  view_options = { show_hidden = true },
+})
+require("oil-git").setup()
 require("telescope").setup()
+require("trouble").setup()
 vim.lsp.config("basedpyright", {
   settings = {
-    ["basedpyright"] = {
-      disableOrganizeImports = true, -- Using Ruff
-      basedpyright = {
-        analysis = {
-          ignore = { "*" }, -- Using Ruff
-          typeCheckingMode = "off", -- Using mypy
-        },
+    disableOrganizeImports = true, -- Using Ruff
+    basedpyright = {
+      analysis = {
+        ignore = { "*" }, -- Using Ruff
+        typeCheckingMode = "off", -- Using mypy
       },
     },
   },
@@ -188,7 +200,7 @@ vim.list_extend(lint.linters.mypy.args, {
   end,
 })
 
--- Create autocommand which carries out the actual linting
+-- Create auto command which carries out the actual linting
 -- on the specified events.
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
@@ -201,12 +213,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 -- -- -- -- -- -- -- -- -- -- -- -- -- -
 -- -- -- --  PLUGIN KEYMAPS  -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -
-map("n", "<leader><leader>", function()
-  require("fff").find_files()
-end, { desc = "Open file picker" })
-map("n", "<leader>e", ":lua MiniFiles.open()<CR>")
-map("n", "<leader>x", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
 map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>")
+map({ "i", "n" }, "<leader>e", function()
+  require("oil").toggle_float()
+end, { desc = "Open oil" })
 map({ "n", "v" }, "<leader>sr", function()
   local grug = require("grug-far")
   local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
@@ -217,10 +227,13 @@ map({ "n", "v" }, "<leader>sr", function()
     },
   })
 end, { desc = "Search and Replace" })
+map("n", "<leader><leader>", function()
+  require("fff").find_files()
+end, { desc = "Open file picker" })
 
 -- -- -- -- -- -- -- -- -- -- --
 -- -- -- --  COLORS  -- -- -- --
 -- -- -- -- -- -- -- -- -- -- --
-require("dracula").setup({ transparent = true })
+require("dracula").setup()
 vim.cmd("colorscheme dracula")
 vim.cmd(":hi statusline guibg=NONE")
