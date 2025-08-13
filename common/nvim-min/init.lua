@@ -108,7 +108,7 @@ vim.pack.add({
   { src = "https://github.com/folke/trouble.nvim" },
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://github.com/kdheepak/lazygit.nvim" },
-  { src = "https://github.com/mason-org/mason.nvim" },
+  -- { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/mfussenegger/nvim-lint" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -119,8 +119,6 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
 })
-
--- mypy + basedpyright + ruff
 -- toggle diagnostics, format and spelling
 
 lsp.enable({ "lua_ls", "ruff", "basedpyright" }) -- uv tool install ruff basedpyright mypy
@@ -136,11 +134,11 @@ require("conform").setup({
     lsp_format = "fallback",
   },
 })
+-- require("mason").setup()
 require("fff").setup() -- cd ~/.local/share/nvim/site/pack/core/opt/fff.nvim && cargo build --release
 require("grug-far").setup()
-require("mini.icons").setup()
-require("mason").setup()
 require("mini.diff").setup()
+require("mini.icons").setup()
 require("oil").setup({
   columns = {
     "icon",
