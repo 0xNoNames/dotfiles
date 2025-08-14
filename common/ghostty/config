@@ -6,8 +6,9 @@ mouse-hide-while-typing = true
 window-decoration = none
 macos-option-as-alt = true
 macos-titlebar-style = hidden
+#keybind=clear
 
-font-family = JetbrainsMono Nerd Font
+#font-family = JetbrainsMono Nerd Font
 font-size = 14
 
 window-padding-x = 8
@@ -15,4 +16,3 @@ window-padding-y = 8
 window-padding-balance = true
 
 confirm-close-surface = false
-keybind=clear
