@@ -53,14 +53,18 @@ map("i", "<C-k>", "<Up>")
 map("i", "<C-l>", "<Right>")
 map("n", "<S-h>", "<CMD>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<CMD>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<C-k>", "<cmd>cnext<CR>zz")
+map("n", "<C-j>", "<cmd>cprev<CR>zz")
+map("n", "<leader>k", "<cmd>lnext<CR>zz")
+map("n", "<leader>j", "<cmd>lprev<CR>zz")
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 -- Disable Q (ex mode in vim)
 map("n", "Q", "<nop>")
 -- Clear highlights on search when pressing <Esc> in normal mode
 function clear_search()
-	vim.cmd("noh")
-	return "<esc>"
+  vim.cmd("noh")
+  return "<esc>"
 end
 map({ "i", "n", "s" }, "<Esc>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
 map({ "i", "n", "s" }, "<C-c>", clear_search, { expr = true, desc = "Escape and Clear hlsearch" })
@@ -70,34 +74,29 @@ map({ "i", "n", "s" }, "<C-c>", clear_search, { expr = true, desc = "Escape and 
 -- -- -- -- -- -- -- -- -- -- -- ---
 local lsp = vim.lsp
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("my.lsp", {}),
-	callback = function(args)
-		map("n", "gd", lsp.buf.definition, { desc = "Goto Definition" })
-		map("n", "gr", lsp.buf.references, { desc = "References" })
-		map("n", "gI", lsp.buf.implementation, { desc = "Goto Implementation" })
-		map("n", "gy", lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
-		map("n", "gD", lsp.buf.declaration, { desc = "Goto Declaration" })
-		map({ "n", "v" }, "<leader>ca", lsp.buf.code_action, { desc = "Code Action" })
-		map({ "n", "v" }, "<leader>cc", lsp.codelens.run, { desc = "Run Codelens" })
-		map("n", "<leader>cC", lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
-		map("n", "<leader>cr", lsp.buf.rename, { desc = "Rename" })
-		map("n", "K", function()
-			return lsp.buf.hover()
-		end, { desc = "Hover" })
-		map("n", "gK", function()
-			return lsp.buf.signature_help()
-		end, { desc = "Signature Help" })
-		map("i", "<c-k>", function()
-			return lsp.buf.signature_help()
-		end, { desc = "Signature Help" })
-		map(
-			"n",
-			"<leader>x",
-			"<CMD>Trouble diagnostics toggle filter.buf=0<CR>",
-			{ desc = "Buffer Diagnostics (Trouble)" }
-		)
-		map("n", "<leader>z", "<CMD>lua vim.diagnostic.open_float()<CR>", { desc = "Line float diagnostic" })
-	end,
+  group = vim.api.nvim_create_augroup("my.lsp", {}),
+  callback = function(args)
+    map("n", "gd", lsp.buf.definition, { desc = "Goto Definition" })
+    map("n", "gr", lsp.buf.references, { desc = "References" })
+    map("n", "gI", lsp.buf.implementation, { desc = "Goto Implementation" })
+    map("n", "gy", lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
+    map("n", "gD", lsp.buf.declaration, { desc = "Goto Declaration" })
+    map({ "n", "v" }, "<leader>ca", lsp.buf.code_action, { desc = "Code Action" })
+    map({ "n", "v" }, "<leader>cc", lsp.codelens.run, { desc = "Run Codelens" })
+    map("n", "<leader>cC", lsp.codelens.refresh, { desc = "Refresh & Display Codelens" })
+    map("n", "<leader>cr", lsp.buf.rename, { desc = "Rename" })
+    map("n", "K", function()
+      return lsp.buf.hover()
+    end, { desc = "Hover" })
+    map("n", "gK", function()
+      return lsp.buf.signature_help()
+    end, { desc = "Signature Help" })
+    map("i", "<c-k>", function()
+      return lsp.buf.signature_help()
+    end, { desc = "Signature Help" })
+    map("n", "<leader>x", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
+    map("n", "<leader>z", "<CMD>lua vim.diagnostic.open_float()<CR>", { desc = "Line float diagnostic" })
+  end,
 })
 
 -- -- -- -- -- -- -- -- -- -- ---
@@ -125,90 +124,94 @@ vim.pack.add({
 })
 -- toggle diagnostics, format and spelling
 
-lsp.enable({ "lua_ls", "ruff", "basedpyright" }) -- uv tool install ruff basedpyright mypy
-
-require("fff").setup() -- cd ~/.local/share/nvim/site/pack/core/opt/fff.nvim && cargo build --release
+require("fff").setup({
+  keymaps = {
+    close = "<C-c>",
+  },
+}) -- cd ~/.local/share/nvim/site/pack/core/opt/fff.nvim && cargo build --release
 require("blink.cmp").setup() -- cd ~/.local/share/nvim/site/pack/core/opt/blink.cmp && cargo build --release
 require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "ruff_format", "ruff_organize_imports" },
-	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "ruff_format", "ruff_organize_imports" },
+  },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
 })
 -- require("mason").setup()
 require("grug-far").setup()
 require("mini.diff").setup()
 require("mini.icons").setup()
 require("oil").setup({
-	columns = {
-		"icon",
-	},
-	view_options = { show_hidden = true },
+  columns = {
+    "icon",
+  },
+  view_options = { show_hidden = true },
 })
 require("oil-git").setup()
 require("telescope").setup()
 require("trouble").setup()
+
+lsp.enable({ "lua_ls", "ruff", "basedpyright" }) -- uv tool install ruff basedpyright mypy
 vim.lsp.config("basedpyright", {
-	settings = {
-		disableOrganizeImports = true, -- Using Ruff
-		basedpyright = {
-			analysis = {
-				ignore = { "*" }, -- Using Ruff
-				typeCheckingMode = "off", -- Using mypy
-			},
-		},
-	},
+  settings = {
+    disableOrganizeImports = true, -- Using Ruff
+    basedpyright = {
+      analysis = {
+        ignore = { "*" }, -- Using Ruff
+        typeCheckingMode = "off", -- Using mypy
+      },
+    },
+  },
 })
 
 require("nvim-treesitter").setup({
-	ensure_installed = {
-		"bash",
-		"rust",
-		"c",
-		"diff",
-		"html",
-		"javascript",
-		"lua",
-		"luadoc",
-		"markdown",
-		"markdown_inline",
-		"python",
-		"regex",
-		"vim",
-		"vimdoc",
-		"xml",
-		"yaml",
-		"css",
-		"query",
-		"toml",
-		"json",
-	},
+  ensure_installed = {
+    "bash",
+    "rust",
+    "c",
+    "diff",
+    "html",
+    "javascript",
+    "lua",
+    "luadoc",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "regex",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
+    "css",
+    "query",
+    "toml",
+    "json",
+  },
 })
 
 local lint = require("lint")
 lint.linters_by_ft = {
-	python = { "mypy" },
+  python = { "mypy" },
 }
 
 vim.list_extend(lint.linters.mypy.args, {
-	"--python-executable",
-	function()
-		return vim.fn.exepath("python3") or vim.fn.exepath("python")
-	end,
+  "--python-executable",
+  function()
+    return vim.fn.exepath("python3") or vim.fn.exepath("python")
+  end,
 })
 
 -- Create auto command which carries out the actual linting
 -- on the specified events.
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-	group = lint_augroup,
-	callback = function()
-		lint.try_lint()
-	end,
+  group = lint_augroup,
+  callback = function()
+    lint.try_lint()
+  end,
 })
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -
@@ -216,23 +219,27 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 -- -- -- -- -- -- -- -- -- -- -- -- -- -
 map("n", "<leader>sg", "<CMD>Telescope live_grep<CR>", { desc = "Open live grep" })
 map("n", "<leader>g", "<CMD>LazyGit<CR>", { desc = "Open lazygit" })
+
 map("n", "<leader>e", function()
-	require("oil").toggle_float()
+  require("oil").toggle_float()
 end, { desc = "Open Oil" })
+
 map("n", "<leader>sr", function()
-	local grug = require("grug-far")
-	local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-	grug.open({
-		transient = true,
-		prefills = {
-			filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-		},
-	})
+  local grug = require("grug-far")
+  local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+  grug.open({
+    transient = true,
+    prefills = {
+      filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+    },
+  })
 end, { desc = "Search and Replace" })
+
 map("n", "<leader><leader>", "<CMD>Telescope find_files<CR>", { desc = "Open file picker" })
+
 map("n", "<leader><leader>", function()
-	require("fff").find_files()
-	-- require("telescope").find_files()
+  require("fff").find_files()
+  -- require("telescope").find_files()
 end, { desc = "Open file picker" })
 
 -- -- -- -- -- -- -- -- -- -- --
@@ -246,7 +253,7 @@ vim.cmd(":hi statusline guibg=NONE")
 -- -- -- --  YANK FLASH  -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- ---
 vim.api.nvim_create_autocmd("TextYankPost", {
-	 callback = function()
-		vim.hl.on_yank()
-	end,
+  callback = function()
+    vim.hl.on_yank()
+  end,
 })
