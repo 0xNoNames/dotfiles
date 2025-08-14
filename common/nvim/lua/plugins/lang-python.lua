@@ -1,9 +1,4 @@
 return {
-  {
-    "williamboman/mason.nvim",
-    opts = { ensure_installed = { "ruff", "mypy", "basedpyright" } },
-  },
-
   { -- LSP
     "neovim/nvim-lspconfig",
     opts = {
