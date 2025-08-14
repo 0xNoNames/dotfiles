@@ -3,7 +3,17 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        ruff = {
+          mason = false, -- uv tool install ruff
+          cmd_env = { RUFF_TRACE = "messages" },
+          init_options = {
+            settings = {
+              logLevel = "error",
+            },
+          },
+        },
         basedpyright = {
+          mason = false, -- uv tool install mypy
           settings = {
             disableOrganizeImports = true, -- Using Ruff
             basedpyright = {
@@ -32,13 +42,13 @@ return {
     --   end,
   },
 
-  { -- Linting
+  { -- Linting using mypy
     "mfussenegger/nvim-lint",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lint = require("lint")
       lint.linters_by_ft = {
-        python = { "mypy" },
+        python = { "mypy" }, -- uv tool install mypy
       }
 
       vim.list_extend(lint.linters.mypy.args, {
