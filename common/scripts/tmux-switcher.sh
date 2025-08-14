@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-selected=$(tmux ls -F '#{?session_attached,[ATTACHED] ,}#S' 2>/dev/null | sort --ignore-case | fzf)
+selected=$(tmux ls -F '#{?session_attached,[ATTACHED] ,}#S' 2>/dev/null | sort --ignore-case | fzf --tac)
 
 if [[ -z $selected ]]; then
   exit 0
