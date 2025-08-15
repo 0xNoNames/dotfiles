@@ -10,5 +10,9 @@ return {
       desc = "Open file picker",
     },
   },
-  opts = {},
+  opts = {
+    keymaps = {
+      close = "<C-c>",
+    },
+  },
 }
