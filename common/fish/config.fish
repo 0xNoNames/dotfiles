@@ -40,6 +40,8 @@ alias lt "ll -TL"
 alias lta "la -TL"
 alias gl "git log -a --oneline --graph"
 alias lg lazygit
+alias lazypod 'DOCKER_HOST=unix:///run/user/1000/podman/podman.sock lazydocker'
+alias lp lazypod
 
 if status is-interactive
     and not set -q TMUX
