@@ -13,6 +13,7 @@ sudo pacman -Syu \
   yazi \
   ncdu \
   fzf \
+  skim \
   ripgrep \
   unzip \
   7zip \
