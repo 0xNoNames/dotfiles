@@ -9,7 +9,7 @@ DIRS=(
 selected=$(fd . "${DIRS[@]}" --type=dir --min-depth=1 --max-depth=1 --full-path 2>/dev/null |
   sed "s|^$HOME/||" |
   sort --ignore-case |
-  sk)
+  sk --tac)
 
 [[ $selected ]] && selected="$HOME/$selected"
 
