@@ -6,14 +6,22 @@ DIRS=(
   "$HOME/Github"
 )
 
-selected=$(fd . "${DIRS[@]}" --type=dir --min-depth=1 --max-depth=1 --full-path 2>/dev/null |
-  sed "s|^$HOME/||" |
-  sort --ignore-case |
-  sk --tac)
-
-[[ $selected ]] && selected="$HOME/$selected"
+selected=$(
+  (
+    fd . "${DIRS[@]}" --type=dir --min-depth=1 --max-depth=1 --full-path 2>/dev/null |
+      sed "s|^$HOME/||" |
+      sort --ignore-case |
+      {
+        printf '%s\n' "home"
+        cat -
+      }
+  ) |
+    sk
+)
 
 [[ ! $selected ]] && exit 0
+
+[[ $selected != "home" ]] && selected="$HOME/$selected"
 
 selected_name=$(basename "$selected" | tr . _)
 
