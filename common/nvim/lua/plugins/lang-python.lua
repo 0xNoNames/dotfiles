@@ -48,10 +48,10 @@ return {
     config = function()
       local lint = require("lint")
       lint.linters_by_ft = {
-        python = { "mypy" }, -- uv tool install mypy
+        python = { "dmypy" }, -- uv tool install mypy
       }
 
-      vim.list_extend(lint.linters.mypy.args, {
+      vim.list_extend(lint.linters.dmypy.args, {
         "--python-executable",
         function()
           return vim.fn.exepath("python3") or vim.fn.exepath("python")
