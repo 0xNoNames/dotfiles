@@ -141,7 +141,7 @@ alt-shift-l = ['join-with right', 'mode main']
 
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
+if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
@@ -153,5 +153,5 @@ if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-id = 'com.spotify.client'
+if.app-id = 'com.deezer.deezer-desktop'
 run = 'move-node-to-workspace 4'
