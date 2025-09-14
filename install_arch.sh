@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 echo '[1/6] Installing required binaries...'
 sudo pacman -Syu \
   networkmanager \
@@ -50,9 +52,14 @@ sudo pacman -Syu \
 # pacman -S noto-fonts-emoji or yay -S ttf-twemoji
 
 echo '[2/6] Backup-ing current configuration...'
-mv ~/.config ~/.config.bak
+if [ -d ~/.config ]; then
+  mv ~/.config ~/.config.bak
+fi
+mkdir ~/.config
+
 echo '[3/6] Installing configurations using STOW...'
 stow -v common
+
 echo '[4/6] Setting fish as default shell'
 chsh -s /usr/bin/fish
 
