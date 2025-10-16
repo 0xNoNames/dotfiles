@@ -1,6 +1,7 @@
 # -- -- -- ENV -- -- -- #
 set -gx TERM xterm-256color
 set -gx EDITOR nvim
+set -gx MANPAGER "nvim +Man!"
 set -Ux fish_prompt_pwd_dir_length 0
 set -Ux fish_greeting ""
 set -Ux HOMEBREW_NO_AUTO_UPDATE 1
